@@ -1,0 +1,131 @@
+<!-- Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT License. -->
+<!-- This file shows how to design a first-run page that provides a welcome screen to the user about the features of the add-in. -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quality Insurance & Credit</title>
+
+    <!-- Office JavaScript API -->
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
+
+    <!-- Template styles -->
+    <link href="acceuil.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            font-family: "Century Gothic", sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="content" style="display: none;">
+        <!-- Logo Section -->
+        <div class="logo">
+            <img src="../../assets/color.png" alt="Quality Insurance & Credit Logo" class="logo-image">
+        </div>
+        <div class="header">
+                <h3>Profil de contact</h3>
+        </div>
+        <!-- Main Content Section -->
+        <div class="main-content">  
+            <div class="icon">
+                <img alt="Icon" id="company-logo">
+            </div>
+            <h3 id="client-name"></h3>
+            <a id="client-mail" class="email"></a>
+            <button class="btn red" id="open-crm">Ouvrir dans Q-I-C</button>
+            <button class="btn orange" id="add-crm">
+                <img src="../../assets/Plus.svg" alt="plus icon">
+                Quality Insurance & Credit
+            </button>
+            <button class="btn outline" id="afficher-contact">Afficher le contact</button>
+        </div>
+        <!-- Activity Content Section -->
+        <div class="container-activity">
+            <div class="header-activity">Activité de cet e-mail</div>
+            <div class="spinner-activity" id="spinner-block"></div>
+            <div class="label" id="assign-block" style="display: none;"></div>
+            <button class="button-activity" id="dropdownToggle">Consigner l'e-mail dans Q-I-C</button>
+            <div class="dropdown" id="emailDropdown" style="display: none;">
+                <div class="spinner-activity" id="spinner-block-mail" style="display: none;"></div>
+                <div class="dropdown-containt" id="dropdown-block">
+                    <div class="search-bar">
+                        <input type="text" placeholder="Rechercher toutes les fiches" id="search-input">
+                        <div class="search-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="98" height="53" viewBox="0 0 98 53" fill="none">
+                                <g filter="url(#filter0_i_74_497)">
+                                <rect width="98" height="53" rx="26.5" fill="#9B132C"/>
+                                </g>
+                                <path d="M46 31C44.326 31.0015 42.6937 30.4778 41.333 29.5027C39.9723 28.5276 38.9518 27.1503 38.4151 25.5646C37.8785 23.979 37.8528 22.2649 38.3416 20.6639C38.8305 19.0628 39.8092 17.6555 41.14 16.64C41.1914 16.595 41.2514 16.5611 41.3164 16.5402C41.3814 16.5193 41.4499 16.5119 41.5179 16.5185C41.5858 16.5251 41.6517 16.5456 41.7114 16.5786C41.7711 16.6116 41.8235 16.6566 41.8652 16.7106C41.9069 16.7646 41.9371 16.8266 41.954 16.8927C41.9708 16.9589 41.9739 17.0278 41.9632 17.0952C41.9524 17.1626 41.9279 17.2271 41.8912 17.2846C41.8546 17.3422 41.8065 17.3917 41.75 17.43C40.3605 18.4964 39.427 20.05 39.1379 21.7775C38.8488 23.5051 39.2255 25.278 40.1922 26.7387C41.1588 28.1994 42.6434 29.2392 44.3465 29.6483C46.0496 30.0575 47.8445 29.8056 49.3692 28.9434C50.8939 28.0812 52.0349 26.6729 52.5621 25.0026C53.0893 23.3323 52.9635 21.5241 52.21 19.9429C51.4565 18.3617 50.1314 17.125 48.502 16.4824C46.8726 15.8397 45.0601 15.8389 43.43 16.48C43.3691 16.5058 43.3037 16.5189 43.2375 16.5187C43.1714 16.5185 43.106 16.5049 43.0453 16.4787C42.9846 16.4526 42.9297 16.4144 42.8842 16.3665C42.8386 16.3186 42.8032 16.262 42.78 16.2C42.7557 16.1389 42.7436 16.0737 42.7445 16.0079C42.7454 15.9422 42.7593 15.8773 42.7853 15.8169C42.8113 15.7566 42.8489 15.7019 42.8961 15.6561C42.9432 15.6103 42.9989 15.5742 43.06 15.55C43.998 15.188 44.9946 15.0015 46 15C48.1218 15 50.1566 15.8429 51.6569 17.3431C53.1572 18.8434 54 20.8783 54 23C54 25.1217 53.1572 27.1566 51.6569 28.6569C50.1566 30.1571 48.1218 31 46 31Z" fill="white"/>
+                                <path d="M57 33.2501L54.72 31.0001C54.6734 30.9517 54.6175 30.9132 54.5556 30.8869C54.4938 30.8606 54.4272 30.847 54.36 30.847C54.2928 30.847 54.2263 30.8606 54.1645 30.8869C54.1026 30.9132 54.0467 30.9517 54 31.0001C53.9078 31.0952 53.8562 31.2225 53.8562 31.3551C53.8562 31.4876 53.9078 31.6149 54 31.7101L56.38 34.0901C56.4735 33.7419 56.6949 33.4419 57 33.2501Z" fill="white"/>
+                                <path d="M61.5 41C60.8367 41.0001 60.2003 40.7377 59.73 40.27L56.23 36.77C55.7622 36.2997 55.4996 35.6634 55.4996 35C55.4996 34.3367 55.7622 33.7004 56.23 33.23C56.7172 32.7957 57.3472 32.5557 58 32.5557C58.6527 32.5557 59.2827 32.7957 59.77 33.23L63.27 36.73C63.6205 37.0797 63.8593 37.5255 63.9562 38.0111C64.053 38.4966 64.0035 39 63.8139 39.4574C63.6243 39.9147 63.3032 40.3055 62.8912 40.5801C62.4793 40.8548 61.9951 41.0009 61.5 41ZM58 33.52C57.7033 33.5145 57.4118 33.5984 57.1634 33.7606C56.915 33.9228 56.721 34.156 56.6067 34.4298C56.4925 34.7036 56.4631 35.0055 56.5226 35.2962C56.582 35.5869 56.7274 35.853 56.94 36.06L60.44 39.56C60.7249 39.8338 61.1048 39.9867 61.5 39.9867C61.8951 39.9867 62.275 39.8338 62.56 39.56C62.8409 39.2788 62.9987 38.8975 62.9987 38.5C62.9987 38.1025 62.8409 37.7213 62.56 37.44L59.06 33.94C58.7763 33.665 58.395 33.514 58 33.52Z" fill="white"/>
+                                <path d="M46 35C43.6266 35 41.3066 34.2962 39.3332 32.9776C37.3598 31.6591 35.8217 29.7849 34.9135 27.5922C34.0052 25.3995 33.7676 22.9867 34.2306 20.6589C34.6936 18.3312 35.8365 16.193 37.5147 14.5147C39.193 12.8365 41.3312 11.6936 43.6589 11.2306C45.9867 10.7676 48.3995 11.0052 50.5922 11.9135C52.7849 12.8217 54.6591 14.3598 55.9776 16.3332C57.2962 18.3066 58 20.6266 58 23C58 26.1826 56.7357 29.2348 54.4853 31.4853C52.2348 33.7357 49.1826 35 46 35ZM46 12C43.8244 12 41.6977 12.6451 39.8887 13.8538C38.0798 15.0625 36.6699 16.7805 35.8373 18.7905C35.0048 20.8005 34.7869 23.0122 35.2114 25.146C35.6358 27.2798 36.6835 29.2398 38.2218 30.7782C39.7602 32.3166 41.7202 33.3642 43.854 33.7886C45.9878 34.2131 48.1995 33.9952 50.2095 33.1627C52.2195 32.3301 53.9375 30.9202 55.1462 29.1113C56.3549 27.3023 57 25.1756 57 23C57 20.0826 55.8411 17.2847 53.7782 15.2218C51.7153 13.1589 48.9174 12 46 12Z" fill="white"/>
+                                <defs>
+                                <filter id="filter0_i_74_497" x="0" y="0" width="98" height="55" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                    <feOffset dy="2"/>
+                                    <feGaussianBlur stdDeviation="2"/>
+                                    <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                                    <feBlend mode="normal" in2="shape" result="effect1_innerShadow_74_497"/>
+                                </filter>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <!-- Dropdown de résultats -->
+                    <div class="arrow" id="arrow"></div>
+                    <div class="dropdown-results" id="search-results" style="display:none;"></div>
+                    <div class="email-list">
+                        <div class="email-group" id="email-group-contacts">
+                            <span class="email-group-label">Contact(s)</span>
+                        </div>
+                        <div class="email-group" id="email-group-dossiers" style="margin-top: 10px;">
+                            <span class="email-group-label">Dossier(s)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown-footer">
+                    <button class="save-btn" id="saveToggle">Enregistrer</button>
+                    <button class="cancel-btn" id="closeToggle" onclick="toggleDropdown()">Annuler</button>
+                </div>
+            </div>
+        </div>
+        <!-- Task Content Section -->
+        <div class="container-task">
+            <div class="header-task">Tâches dues cette semaine</div>
+            <div class="span-task">Aucune tâche due cette semaine</div>
+        </div>
+        <!-- Plus Content Section -->
+        <div class="container-plus" id="open-parameter">
+            <div class="header-plus">Plus</div>
+            <div class="span-plus">Paramètres d’extension</div>
+        </div>
+        <!-- blank space -->
+        <div class="blank"></div>
+    </div>
+    <!-- loading -->
+    <div id="loading" style="display: none;">
+        <div class="spinner-loading"></div>
+        <p>Chargement...</p>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Renommer l'email</h3>
+            <input type="text" placeholder="Nom de l'email" id="name-email-input">
+            <button class="save-mail" id="saveMail">Enregistrer</button>
+        </div>
+    </div>
+</body>
+
+</html>

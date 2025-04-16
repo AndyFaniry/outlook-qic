@@ -1,0 +1,102 @@
+<!-- Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT License. -->
+<!-- This file shows how to design a first-run page that provides a welcome screen to the user about the features of the add-in. -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quality Insurance & Credit</title>
+
+    <!-- Office JavaScript API -->
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
+
+    <!-- Template styles -->
+    <link href="profil.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            font-family: "Century Gothic", sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="content" style="display: none;">
+        <!-- Logo Section -->
+        <div class="logo">
+            <img src="../../assets/color.png" alt="Quality Insurance & Credit Logo" class="logo-image">
+        </div>
+        <div class="header" id="return-acceuil">
+            <!-- <img src="../../assets/arrow-left.png" alt="Left Arrow"> -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>                        
+            <h3 id="header-name"></h3>
+        </div>
+        <!-- Main Content Section -->
+        <div class="main-content">  
+            <div class="icon">
+                <img alt="Icon" id="company-logo">
+            </div>
+            <h3 id="client-name"></h3>
+            <a id="client-mail" class="email"></a>
+            <button class="btn red" id="open-crm">Ouvrir dans Q-I-C</button>
+        </div>
+        <!-- hr ligne -->
+        <hr class="separator">
+        <!-- list item -->
+        <div class="list">
+            <!-- Item 1 -->
+            <div class="list-item">
+              <div class="icon">❯</div>
+              <span>À propos</span>
+            </div>
+            <div class="list-content">
+              <p>Nom: <input type="text" id="content-nom"></input></p>
+              <p>Prénom: <input type="text" id="content-prenom"></input></p>
+              <p>Date de naissance: <input type="text" id="content-dateNaissance"></input></p>
+              <p>Adresse: <input type="text" id="content-adresse"></input></p>
+              <p>Ville: <input type="text" id="content-ville"></input></p>
+              <p>Numéro: <input type="number" id="content-numero"></input></p>
+              <p>Boîte: <input type="text" id="content-boite"></input></p>
+              <p>Code postal: <input type="number" id="content-cp"></input></p>
+              <p>Téléphone: <input type="text" id="content-telephone"></input></p>
+              <span id="errorMsg" style="color: red; margin-left: 10px;"></span>
+              <p id="button-changed" class="button-change" style="display: none;">
+                <button class="save-btn" id="save">Enregistrer</button>
+                <button class="undo-btn" id="undo">Annuler</button>
+              </p>
+            </div>
+        
+            <!-- Item 2 -->
+            <div class="list-item">
+              <div class="icon">❯</div>
+              <span>Dossier (0)</span>
+            </div>
+            <div class="list-content">
+              This is the content for "Dossier (0)". You can add more details here.
+            </div>
+        
+            <!-- Item 3 -->
+            <div class="list-item">
+              <div class="icon">❯</div>
+              <span>Tâches (0)</span>
+            </div>
+            <div class="list-content">
+              This is the content for "Tâches (0)". Additional information goes here.
+            </div>
+        </div>
+        <!-- blank space -->
+        <!-- <div class="blank"></div> -->
+    </div>
+    <!-- loading -->
+    <div id="loading" style="display: none;">
+        <div class="spinner-loading"></div>
+        <p>Chargement...</p>
+    </div>
+</body>
+
+</html>

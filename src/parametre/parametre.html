@@ -1,0 +1,82 @@
+<!-- Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT License. -->
+<!-- This file shows how to design a first-run page that provides a welcome screen to the user about the features of the add-in. -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Quality Insurance & Credit</title>
+    
+        <!-- Office JavaScript API -->
+        <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
+    
+        <!-- Template styles -->
+        <link href="parametre.css" rel="stylesheet" type="text/css" />
+        <style>
+            body {
+                font-family: "Century Gothic", sans-serif;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container" id="content" style="display: none;">
+            <!-- Logo Section -->
+            <div class="logo">
+                <img src="../../assets/color.png" alt="Quality Insurance & Credit Logo" class="logo-image">
+            </div>
+            <div class="header">
+                <span id="return-acceuil">Accueil</span>
+                <img src="../../assets/Chevron right.svg" alt="chevron right">
+                <span>Paramètre d'extension</span>
+            </div>
+            <!-- Card section -->
+            <div class="card">
+                <div class="card-header">
+                  Boîte de réception connectée
+                </div>
+                <div class="card-body">
+                  <img src="../../assets/logo Outlook.png" alt="Outlook Logo">
+                  <div>
+                    <div class="email" id="mail-card"></div>
+                  </div>
+                </div>
+                <div class="card-footer">
+                    <div class="status">
+                        <div class="dot"></div>
+                        <span>Votre boîte de réception est connectée</span>
+                    </div>
+                </div>
+            </div>
+            <!-- account card -->
+            <div class="account-card">
+                <div class="account-card-header">
+                    Compte QIC
+                </div>
+                <div class="logo-container">
+                    <img src="../../assets/logo-compte.png" alt="Quality Insurance & Credit Logo">
+                </div>
+                <div class="info-container">
+                    <div class="info" id="boite-mail"></div>
+                    <div class="info" id="mail-container"></div>
+                    <div class="info">ID de compte : <span id="compte-id"></span></div>
+                    <div class="info">Outils gratuits Q-i-C</div>
+                    <button class="change-account" id="changer-compte">
+                        Changer de compte
+                        <img src="../../assets/color.png" alt="Change Account Icon">
+                    </button>
+                </div>
+                <button class="logout" id="deconnexion">Déconnexion</button>
+            </div>
+            
+            <!-- blank space -->
+            <div class="blank"></div>
+        </div>
+        <!-- loading -->
+        <div id="loading" style="display: none;">
+            <div class="spinner-loading"></div>
+            <p>Chargement...</p>
+        </div>
+    </body>
+</html>
