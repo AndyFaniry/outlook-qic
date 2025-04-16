@@ -68,7 +68,7 @@
                     "id": "TaskPaneRuntime",
                     "type": "general",
                     "code": {
-                        "page": "https://localhost:3000/taskpane.html"
+                        "page": "https://outlook-qic.onrender.com/taskpane.html"
                     },
                     "lifetime": "short",
                     "actions": [
@@ -97,15 +97,15 @@
                                     "icons": [
                                         {
                                             "size": 16,
-                                            "url": "https://localhost:3000/assets/icon-16.png"
+                                            "url": "https://outlook-qic.onrender.com/assets/icon-16.png"
                                         },
                                         {
                                             "size": 32,
-                                            "url": "https://localhost:3000/assets/icon-32.png"
+                                            "url": "https://outlook-qic.onrender.com/assets/icon-32.png"
                                         },
                                         {
                                             "size": 80,
-                                            "url": "https://localhost:3000/assets/icon-80.png"
+                                            "url": "https://outlook-qic.onrender.com/assets/icon-80.png"
                                         }
                                     ],
                                     "controls": [
@@ -116,15 +116,15 @@
                                             "icons": [
                                                 {
                                                     "size": 16,
-                                                    "url": "https://localhost:3000/assets/icon-16.png"
+                                                    "url": "https://outlook-qic.onrender.com/assets/icon-16.png"
                                                 },
                                                 {
                                                     "size": 32,
-                                                    "url": "https://localhost:3000/assets/icon-32.png"
+                                                    "url": "https://outlook-qic.onrender.com/assets/icon-32.png"
                                                 },
                                                 {
                                                     "size": 80,
-                                                    "url": "https://localhost:3000/assets/icon-80.png"
+                                                    "url": "https://outlook-qic.onrender.com/assets/icon-80.png"
                                                 }
                                             ],
                                             "supertip": {
